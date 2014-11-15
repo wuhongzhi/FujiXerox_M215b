@@ -1,5 +1,6 @@
 Implement Scanner function for FujiXor M215b
-
+<br>
+<p>
 Usage:
 java -jar FujiXerox_M215b.jar [scan|convert] [options]
 
@@ -26,4 +27,4 @@ Image Convert [options]
   -t           well transparency
   -T           extremely transparency
   -V           verbose mode
-
+</p>
