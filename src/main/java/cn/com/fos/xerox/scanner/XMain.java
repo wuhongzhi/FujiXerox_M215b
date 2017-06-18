@@ -201,13 +201,17 @@ public class XMain extends TApplication implements FocusListener {
 			add(hint, sw / 2, sh / 2);
 		}
 		public  void timeout(int ticks) {
-			hint.move(random.nextInt(sw), random.nextInt(sh));
+			if (ticks == 0) {
+				hint.move(sw / 2, sh / 2);
+			} else {
+				hint.move(random.nextInt(sw), random.nextInt(sh));
+			}
 			updateUI();
 		}
 	}
 	
 	@Override
 	protected int getTimeout() {
-		return (int)TimeUnit.SECONDS.toMillis(10);
+		return (int)TimeUnit.SECONDS.toMillis(30);
 	}
 }
