@@ -87,6 +87,7 @@ public class XMain extends TApplication implements FocusListener {
 				new Thread(new Runnable() {
 					public void run() {
 						try {
+							screenSaver.setEnable(false);
 							Scan.main(args.toArray(new String[0]));
 						} catch (Throwable ex) {
 							new TWarning(ex.getMessage(), new ClickListener() {
@@ -96,6 +97,7 @@ public class XMain extends TApplication implements FocusListener {
 							}).setVisible(true);
 						} finally {
 							t_progress.dispose();
+							screenSaver.setEnable(true);
 						}
 					}
 				}).start(); 
@@ -190,7 +192,7 @@ public class XMain extends TApplication implements FocusListener {
 	class MyScreenSaver extends TScreenSaver {
 		private static final long serialVersionUID = -5737646514952379908L;
 		private Random random = new Random();
-		private TLabel hint = new TLabel("PLEASE PRESS ESCAPE KEY TO CLOSE THIS WINDOW");
+		private TLabel hint = new TLabel("PLEASE PRESS ESCAPE KEY TO RETURN");
 		private int sw, sh;
 		public MyScreenSaver(String title) {
 			super(title);
@@ -212,6 +214,6 @@ public class XMain extends TApplication implements FocusListener {
 	
 	@Override
 	protected int getTimeout() {
-		return (int)TimeUnit.SECONDS.toMillis(30);
+		return (int)TimeUnit.SECONDS.toMillis(15);
 	}
 }
