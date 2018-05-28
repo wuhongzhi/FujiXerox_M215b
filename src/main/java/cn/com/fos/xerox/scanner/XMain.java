@@ -46,16 +46,12 @@ public class XMain extends TApplication implements FocusListener {
 		super("SCANNER");
 	}
 	public void lost(TWidget w) {
-		getGraphic().startDraw();
 		w.setShadow(false);
 		w.getParent().updateUI();
-		getGraphic().endDraw();
 	}
 	public void focus(TWidget w) {
-		getGraphic().startDraw();
 		w.setShadow(true);
 		w.getParent().updateUI();
-		getGraphic().endDraw();
 	}
 	protected void createWidgets() {
 		final TWindow win = new TWindow(getResource("message", "TITLE"), 33, 8);
